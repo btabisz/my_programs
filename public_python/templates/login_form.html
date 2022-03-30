@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'messages.html' %}
+<body class="background-color">
+<br>
+<center>
+<form action="/login/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="product_list_search_button" type="submit" value="Zaloguj">
+</form>
+</center>
+</body>
+
+{% endblock %}

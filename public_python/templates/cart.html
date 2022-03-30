@@ -1,0 +1,28 @@
+{% extends 'base_logged.html' %}
+{% load static %}
+{% block content %}
+{% include 'messages.html' %}
+<body class="background-color">
+
+<h2 style="margin-left: 50px">Twoja lista zakupów:</h2>
+<form action="/delete_from_cart/" method="post">
+    {% csrf_token %}
+        {% for i in product %}
+            <div class="product_list" style="margin-left: 30px">
+                            <center>
+                                <table border="0" cellpadding="4">
+                                    <tr>
+                                        <td width="30" style="padding-left: 8px">{{ forloop.counter }}</td>
+                                        <td width="280">{{ i.product.product_name }}</td>
+                                        <td width="170">{{ i.product.category }}</td>
+                                        <td><button class="product_list_button" type="submit" name="product" value="{{i.product.id}}">Usuń z listy</button> </td>
+                                    </tr>
+                                </table>
+                            </center>
+            </div>
+        {% endfor %}
+
+</form>
+</body>
+
+{% endblock %}

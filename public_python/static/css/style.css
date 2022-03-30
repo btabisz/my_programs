@@ -1,0 +1,81 @@
+h1 {
+    color: #663300;
+}
+h2 {
+    color: #663300;
+    size: 10;
+}
+
+.background-color {
+    background: #C8E6C9;
+}
+.product_list {
+    height: 3rem;
+    width:  40rem;
+    margin: 0.5rem auto;
+    padding: 0.1rem;
+    border: 0rem solid;
+    border-radius: 2rem;
+    background: #4CAF50;
+    color: white;
+}
+
+.product_list_button {
+    height: 2rem;
+    width:  10rem;
+    margin: 0.1rem auto;
+    padding: 0.07rem;
+    border: 0rem solid;
+    border-radius: 2rem;
+    background: white;
+    color: red;
+}
+
+.product_list_search {
+    height: 2rem;
+    width:  10rem;
+    margin: 0.3rem auto;
+    padding: 1rem;
+    border: 0px;
+    border-radius: 2rem;
+    background: white;
+    color: black;
+}
+
+.product_list_search_button {
+    height: 2rem;
+    width:  7rem;
+    margin: 0.3rem auto;
+    padding: 0.3rem;
+    border: 0px;
+    border-radius: 2rem;
+    background: white;
+    color: red;
+}
+.add_product {
+    height: 2rem;
+    width:  10rem;
+    margin: 0.3rem auto;
+    padding: 1rem;
+    border: 0px;
+    border-radius: 2rem;
+    background: white;
+    color: black;
+}
+
+.add_product_button {
+    height: 2rem;
+    width:  8rem;
+    margin: 0.3rem auto;
+    padding: 0.3rem;
+    border: 0px;
+    border-radius: 2rem;
+    background: white;
+    color: red;
+
+div1 {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}

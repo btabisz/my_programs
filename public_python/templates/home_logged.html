@@ -1,0 +1,21 @@
+{% extends 'base_logged.html' %}
+{% load static %}
+{% block content %}
+
+<body class="background-color">
+<center>
+    <br>
+<img src="static/img/avataaars.svg" width="200"/>
+<br><br>
+<h1>
+    {% if request.user.is_authenticated %}
+        Witaj {{ request.user }}!
+    {% endif %}
+</h1>
+</center>
+</body>
+
+
+
+{% endblock %}
+

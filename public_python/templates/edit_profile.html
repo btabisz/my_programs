@@ -1,0 +1,32 @@
+{% extends 'base_logged.html' %}
+{% load static %}
+{% block content %}
+<body class="background-color">
+<h1>Panel edycji konta użytkownika </h1>
+    <div class="edit_profile_class">
+<form action="/edit/" method="post">
+    {% csrf_token %}
+    Dane do logowania:<br>
+    Login: <input id="username" disabled type="text" name="username" placeholder="{{ request.user }}">
+    <br><br>
+    Hasło: <input id="password" type="password" name="password"placeholder="Wpisz nowe hasło">
+    <input type="submit" value="Zmień hasło"><br><br>
+    Twoje dane:<br>
+    Imię: <input id="first_name" type="text" name="first_name"placeholder="{{ request.user.first_name }}">
+    <br><br>
+    Nazwisko: <input id="last_na" type="text" name="last_name" placeholder="{{ request.user.last_name }}">
+    <br><input type="submit" value="Zapisz"><br>
+
+</form>
+
+    </div>
+<br>
+{% if messages %}
+<!--  {% for message in messages %}-->
+    {{ message }}
+<!--    {% endfor %}-->
+{% endif %}
+<br>
+</body>
+
+{% endblock %}
