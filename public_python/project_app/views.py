@@ -11,6 +11,7 @@ from django.shortcuts import render
 from django.contrib.auth import logout
 from django.contrib import messages
 from .models import Product, Category, Cart
+from django.db.models import Q
 
 
 def homepage(request):
@@ -112,7 +113,7 @@ def add_product(request):
     if prod_name and cat_id is not None:
         user = request.user
         category = Category.objects.get(id=cat_id)
-        prod = Product.objects.filter()
+        prod = Product.objects.filter(Q(user_id = user.id) | Q(user_id = 1))
         for i in prod:
             if str(prod_name.upper()) == str(i.product_name.upper()):
                 messages.add_message(request, messages.ERROR, 'Produkt: "%s" - już jest w bazie!' %prod_name)
@@ -153,8 +154,9 @@ def add_to_cart(request):
 
 @login_required
 def my_search(request):
+    user = request.user
     search_input = request.POST.get('product_name', '')
-    all_products = Product.objects.filter().order_by('product_name')
+    all_products = Product.objects.filter(Q(user_id = user.id) | Q(user_id = 1)).order_by('product_name')
     cat_id = request.POST.get('radiocat', None)
     cat = Category.objects.filter()
     context = {'product': all_products, 'category': cat}
@@ -162,13 +164,13 @@ def my_search(request):
         context = {}
         for product in all_products:
             if str(search_input.upper()) in product.product_name.upper():
-                q_set = Product.objects.filter(product_name = product.product_name)
+                q_set = Product.objects.filter(product_name = product.product_name).filter(Q(user_id = user.id) | Q(user_id = 1))
                 context = {'product': q_set, 'category': cat}
 
     if search_input is '' and cat_id is not None:
         context = {}
         category = Category.objects.get(id=cat_id)
-        filtered_products = Product.objects.filter(category=category).order_by('product_name')
+        filtered_products = Product.objects.filter(category=category).filter(Q(user_id = user.id) | Q(user_id = 1)).order_by('product_name')
         context = {'product': filtered_products, 'category': cat}
 
     return render(request, "my_search_form.html", context)

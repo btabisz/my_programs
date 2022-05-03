@@ -9,7 +9,7 @@
             <td width="250" valign="top">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input class="product_list_search" id="product_name" type="text" name="product_name" placeholder="Nazwa produktu">
+                    <input class="product_list_search" id="product_name" type="text" name="product_name" placeholder="Nazwa produktu" maxlength="30">
                         <br>
                     {% for i in category %}
                         <input type="radio" id="{{i.id}}" name="radiocat" value="{{i.id}}">

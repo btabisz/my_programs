@@ -7,7 +7,8 @@
         <form action="/add_product/" method="post">
             {% csrf_token %}
             <h2>Dodaj produkt:</h2>
-            <input class="add_product" id="product_name" type="text" name="product_name" placeholder="Nazwa produktu">
+            (Inni użytkownicy nie będą widzieli tego produktu)<br>
+            <input class="add_product" id="product_name" type="text" name="product_name" placeholder="Nazwa produktu" maxlength="30">
             <br>
 
         {% for i in category %}
